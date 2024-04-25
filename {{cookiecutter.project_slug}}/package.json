@@ -1,0 +1,42 @@
+{
+    "name": "{{ cookiecutter.project_slug }}",
+    "version": "{{ cookiecutter.project_version }}",
+    "description": "{{ cookiecutter.project_description }}",
+    "private": true,
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "lint": "npm run lint:eslint && npm run lint:markdownlint && npm run lint:stylelint",
+        "lint:eslint": "eslint . --ext .ts",
+        "lint:markdownlint": "markdownlint *.md",
+        "lint:stylelint": "stylelint ./src/**/*.{css,styl}",
+        "prepare": "husky install",
+        "test": "vitest --run"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/{{ cookiecutter.github_user }}/{{ cookiecutter.project_slug }}.git"
+    },
+    "keywords": [
+        "{{ cookiecutter.project_keywords.split(',')|join('",\n        "') }}"
+    ],
+    "author": "{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>",
+    "license": "{{ cookiecutter.license_id }}",
+    "devDependencies": {
+        "@sveltejs/vite-plugin-svelte": "^1.0.4",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
+        "eslint": "^8.27.0",
+        "husky": "^8.0.1",
+        "jsdom": "^20.0.2",
+        "markdownlint-cli": "^0.32.2",
+        "stylelint": "^14.16.1",
+        "stylelint-stylus": "^0.17.1",
+        "stylus": "^0.59.0",
+        "stylus-loader": "^7.1.0",
+        "svelte": "^3.50.0",
+        "typescript": "^4.8.4",
+        "vite": "^3.2.2",
+        "vitest": "^0.24.5"
+    }
+}
